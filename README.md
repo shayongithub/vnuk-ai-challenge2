@@ -13,4 +13,7 @@ After downloading, there are 2 folder **Flicker8k_Dataset** and **Flicker8k_Text
   - Flickr_8k.testImages, Flickr_8k.devImages, Flickr_8k.trainImages, Flickr_8k.devImages consist of image id for test, train and validation.
   - Flickr8k.token contain 5 different caption for each image in the *Flicker8k_Dataset*
 
+Image | Caption
+--- | ---
+
 ## Model
