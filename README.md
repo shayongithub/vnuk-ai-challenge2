@@ -17,6 +17,15 @@ Image | Caption
 --- | ---
 <img src="images_test/girl.png" width="300"> | - A child in a pink dress is climbing up a set of stairs in an entry way.<br>- A girl going into a wooden building .<br>- A little girl climbing into a wooden playhouse .<br>- A little girl climbing the stairs to her playhouse .<br>- A little girl in a pink dress going into a wooden cabin 
 
+## Requirements
+- tensorflow
+- nltk
+- numpy
+- matplotlib
+- pandas
+
+These requirements can be easily installed by: `pip install -r requirements.txt`
+
 ## Model
 <div align="center">
   <img src="model.png"><br><br>
@@ -27,13 +36,6 @@ Image | Caption
 The model has been trained for 10 epoches on 6000 training samples of Flickr8k Dataset. It acheives a `BLEU-1 = ~0.56` with 1000 testing samples with both **Greedy Search** and **Beam Search**
 
 ----------------------------------
-
-## Requirements
-- tensorflow
-- nltk
-- numpy
-- matplotlib
-- pandas
 
 ## Architecture
 
@@ -58,4 +60,6 @@ Afterthat, we add 2 token `"startseq"` and `"endseq"` to denote the start and en
 
 We see there are around 9000 different words out of 40000 captions. However, we don't care much for words that appear only a few times, because it looks like noise and is not good for our model's learning and prediction, so we keep only the words that appear more than **10 times**. among all the captions. After removing the words that appear less than 10 times, we are left with 1651 words. 
 
-### 
+### Model Architecture
+
+As the image of model above, the left hand side is the input for Text, and the right hand side is for images. After preprocessing captions and embeded words to vector, we fit it into LSTM model 
