@@ -15,5 +15,5 @@ After downloading, there are 2 folder **Flicker8k_Dataset** and **Flicker8k_Text
 
 Image | Caption
 --- | ---
-<img src="images_test/girl.jpg" width="300"> | - A child in a pink dress is climbing up a set of stairs in an entry way.<br>- A girl going into a wooden building .<br>- A little girl climbing into a wooden playhouse .<br>- A little girl climbing the stairs to her playhouse .<br>- A little girl in a pink dress going into a wooden cabin 
+<img src="images_test/girl.png" width="300"> | - A child in a pink dress is climbing up a set of stairs in an entry way.<br>- A girl going into a wooden building .<br>- A little girl climbing into a wooden playhouse .<br>- A little girl climbing the stairs to her playhouse .<br>- A little girl in a pink dress going into a wooden cabin 
 ## Model
