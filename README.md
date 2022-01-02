@@ -43,4 +43,19 @@ The model has been trained for 10 epoches on 6000 training samples of Flickr8k D
 
  For the training, for each 1 image, we have 5 captions combined together. So we have to pre-process these 2 input seperately before fit into our LSTM model. 
  
- With the captions, in general, most of Machine Learning or Deep Learning model does not handly text input like `'man', 'hawk', 'woman'..` directly and have to encode into number form. Each word will be encoded into a vector with fixed length (also call *word embedding*). For this project, I use Pre-trained GLOVE Model to vectorize words
+ With the captions, in general, most of Machine Learning or Deep Learning model does not handly text input like `'man', 'hawk', 'woman'..` directly and have to encode into number form. Each word will be encoded into a vector with fixed length (also call *word embedding*). For this project, I use Pre-trained GLOVE Model to vectorize words, each vector has shape of `(1,200)`
+ 
+ With the images, similarly with text, we also use a pre-trained model with larget datasset (Imagenet) to extract features from images into a *featuring vector*. There are a lot of pre-trained model outhere likes: ResNet, VGG16, Inception,.. In this model, I choose to use the InceptionV3. As InceptionV3 requires input as shape `(299,299)`, we need to resize our image into that. The output vector is `(1,256)`
+ 
+ ### Text processing
+ 
+ Before vectorizing words into vector, we need to clean the captions with following steps:
+ - Convert uppercase to lowercase, "Hello" -> "hello"
+ - Remove special characters like "%", "$", "#"
+ - Remove alphanumeric characters like hey199 
+
+Afterthat, we add 2 token `"startseq"` and `"endseq"` to denote the start and end of the caption. For example: “startseq a girl going into a wooden building endseq“. The *endseq* is used to know whether it is the end of the caption while testing.
+
+We see there are around 9000 different words out of 40000 captions. However, we don't care much for words that appear only a few times, because it looks like noise and is not good for our model's learning and prediction, so we keep only the words that appear more than **10 times**. among all the captions. After removing the words that appear less than 10 times, we are left with 1651 words. 
+
+### 
