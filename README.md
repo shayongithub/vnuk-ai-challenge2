@@ -21,3 +21,14 @@ Image | Caption
 <div align="center">
   <img src="model.png"><br><br>
 </div>
+
+## Performance
+The model has been trained for 10 epoches on 6000 training samples of Flickr8k Dataset. It acheives a `BLEU-1 = ~0.56` with 1000 testing samples with both **Greedy Search** and **Beam Search**
+----------------------------------
+
+## Requirements
+- tensorflow
+- nltk
+- numpy
+- matplotlib
+- pandas
