@@ -34,3 +34,13 @@ The model has been trained for 10 epoches on 6000 training samples of Flickr8k D
 - numpy
 - matplotlib
 - pandas
+
+## Architecture
+
+**Input** of our model is the *image* and **Output** is a text correspoding to provided image
+ 
+ As we have input is image, we can think about using CNN to extract the features from it, along with output is text, we immediately think about RNN which handles sequences and used Long Short-Term Memory in this case.
+
+ For the training, for each 1 image, we have 5 captions combined together. So we have to pre-process these 2 input seperately before fit into our LSTM model. 
+ 
+ With the captions, in general, most of Machine Learning or Deep Learning model does not handly text input like `'man', 'hawk', 'woman'..` directly and have to encode into number form. Each word will be encoded into a vector with fixed length (also call *word embedding*). For this project, I use Pre-trained GLOVE Model to vectorize words
