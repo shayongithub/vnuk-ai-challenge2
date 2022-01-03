@@ -1,9 +1,12 @@
-<body style="background-color:white;">
+
   
   # Image Captioning with LSTM
 
   Image Captioning model generates natural captions for input images
-
+  
+  ### Note:
+  If you have hard time reading the math explain, consider change your github theme to light! Follow the path: Settings -> Appearance 
+  
   ## Dataset
   The model is trained on [Flickr8k Dataset](https://academictorrents.com/details/9dea07ba660a722ae1008c4c8afdd303b6f6e53b) which contains 8000 images. 6000 for training, 1000 for testing and validating.
 
@@ -103,5 +106,6 @@
   </div>
 
   Look from the left, the first step in LSTM model is deciding which information will get throw away. The mentioned forget gate with sigmoid function will make the decision in which information will be removed. It looks at ![formula](https://render.githubusercontent.com/render/math?math=h_{t-1}) and ![formula](https://render.githubusercontent.com/render/math?math=x_t) and outputs a number between 0 and 1 for each number in the previous cell state ![formula](https://render.githubusercontent.com/render/math?math=C_{t-1})
+  
+  The next step is to decide what new information we’re going to store in the cell state. This has two parts. First, a sigmoid layer called the *input gate layer* decides which values we’ll update. Next, a *tanh layer* creates a vector of new candidate values, ![formula](https://render.githubusercontent.com/render/math?math=h_{t-1}) and ![formula](https://render.githubusercontent.com/render/math?math=\tilde{C_t}), that could be added to the state. In the next step, we’ll combine these two to create an update to the state.
 
-</body>
