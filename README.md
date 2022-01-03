@@ -1,3 +1,4 @@
+<body style="background-color:white;">
 # Image Captioning with LSTM
 
 Image Captioning model generates natural captions for input images
@@ -101,3 +102,5 @@ LSTM has a total of 3 gates, protect and control the cell states: Forget gate, i
 </div>
 
 Look from the left, the first step in LSTM model is deciding which information will get throw away. The mentioned forget gate with sigmoid function will make the decision in which information will be removed. It looks at ![formula](https://render.githubusercontent.com/render/math?math=h_{t-1}) and ![formula](https://render.githubusercontent.com/render/math?math=x_t) and outputs a number between 0 and 1 for each number in the previous cell state ![formula](https://render.githubusercontent.com/render/math?math=C_{t-1})
+
+  </body>
