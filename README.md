@@ -45,9 +45,9 @@ The model has been trained for 10 epoches on 6000 training samples of Flickr8k D
 
  For the training, for each 1 image, we have 5 captions combined together. So we have to pre-process these 2 input seperately before fit into our LSTM model. 
  
- With the captions, in general, most of Machine Learning or Deep Learning model does not handly text input like `'man', 'hawk', 'woman'..` directly and have to encode into number form. Each word will be encoded into a vector with fixed length (also call *word embedding*). For this project, I use Pre-trained GLOVE Model to vectorize words, each vector has shape of `(1,200)`
+ With the captions, in general, most of Machine Learning or Deep Learning model does not handly text input like `'man', 'hawk', 'woman'..` directly and have to encode into number form. Each word will be encoded into a vector with fixed length (also call *word embedding*). For this project, I use Pre-trained GLOVE Model to vectorize words, each vector has shape of `(1,200)`. Then we fit word vector into **RNN/LSTM** model to handle sequential data and predict which word is next in the sequence. The output vector of model is `(1,256)`
  
- With the images, similarly with text, we also use a pre-trained model with larget datasset (Imagenet) to extract features from images into a *featuring vector*. There are a lot of pre-trained model outhere likes: ResNet, VGG16, Inception,.. In this model, I choose to use the InceptionV3. As InceptionV3 requires input as shape `(299,299)`, we need to resize our image into that. The output vector is `(1,256)`
+ With the images, similarly with text, we also use a pre-trained model with larget datasset (Imagenet) to extract features from images into a *featuring vector*. There are a lot of pre-trained model outhere likes: ResNet, VGG16, Inception,.. In this model, I chose to use the InceptionV3. As InceptionV3 requires input as shape `(299,299)`, we need to resize our image into that. The output vector is `(1,256)`
  
  ### Text processing
  
@@ -62,4 +62,4 @@ We see there are around 9000 different words out of 40000 captions. However, we 
 
 ### Model Architecture
 
-As the image of model above, the left hand side is the input for Text, and the right hand side is for images. After preprocessing captions and embeded words to vector, we fit it into LSTM model 
+As the image of model above, the left hand side is the input for Text, and the right hand side is for images. After preprocessing captions, embedded words to vector, extract features from images. We concatnate these 2 inputs 
