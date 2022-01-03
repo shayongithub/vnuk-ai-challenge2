@@ -29,7 +29,6 @@ These requirements can be easily installed by: `pip install -r requirements.txt`
 ## Model
 <div align="center">
   <img src="model.png"><br><br>
-  <figcaption>Image from Deep Learning cơ bản website - Image Captioning</figcaption>
 </div>
 
 ## Performance
@@ -67,4 +66,38 @@ As the image of model above, the left hand side is the input for Text, and the r
 
 <div align="center">
   <img src="model-idea.png"><br><br>
+  <figcaption>Image from Deep Learning cơ bản website - Image Captioning</figcaption>
 </div>
+
+## Math explain for Long Short-Term Memory
+
+Long Short Term Memory networks – usually just called "LSTMs" – are a special kind of RNN, capable of learning long-term dependencies. LSTMs are explicitly designed to avoid the long-term dependency problem. (You can read more about this problem as well as *vanishing gradient* [here](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+
+<div align="center">
+  <img src="LSTM3-chain.png"><br><br>
+  <figcaption>The chain like structure of LSTM</figcaption>
+</div>
+
+In comparision with traditional RNN model only has 1 layer which is activation function like `tanh` or `relu`, the LSTM model has 4 different layers interacting with each other in a special way.
+
+### Cell State - Core idea of LSTM model
+
+The core idea behinds a LSTM model is a cell state, which is the horizontal line running through the top of a diagram. The cell state work like a conveyor belt, bringing the information flow through the structure with minor linear interaction. Like in this case, we only have 2 pointwise operation, multiplication and addition.
+
+<div align="center">
+  <img src="LSTM3-C-line.png"><br><br>
+</div>
+
+If LSTM model want to remove or add information into the cell state, the passed information must go through a structure call **gates**.
+
+Gates are a way to optionally let information through. They are composed out of a sigmoid neural net layer and a pointwise multiplication operation. The sigmoid function output the numbers lie between 0 and 1, indicating how much of information should be let through the gate. The output of 0 means "let nothing pass" and output of 1 means "let everything through"
+
+LSTM has a total of 3 gates, protect and control the cell states: Forget gate, input gate and output gate.
+
+### LSTM model walk-through
+
+<div align="center">
+  <img src="LSTM3-focus-f.png"><br><br>
+</div>
+
+Look from the left, the first step in LSTM model is deciding which information will get throw away. The mentioned forget gate with sigmoid function will make the decision in which information will be removed. It looks at $h_{t-1}$ and $x_t$ and outputs a number between 0 and 1 for each number in the previous cell state $C_{t−1}$
