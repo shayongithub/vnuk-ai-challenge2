@@ -62,4 +62,8 @@ We see there are around 9000 different words out of 40000 captions. However, we 
 
 ### Model Architecture
 
-As the image of model above, the left hand side is the input for Text, and the right hand side is for images. After preprocessing captions, embedded words to vector, extract features from images. We concatnate these 2 inputs 
+As the image of model above, the left hand side is the input for Text, and the right hand side is for images. After preprocessing captions, embedded words to vector and extract features from images, we concatnate these 2 inputs and fit to our model. The idea here is that when we provided a embedding vector of image and a word, we will try to predict what will come next in the sequence.
+
+<div align="center">
+  <img src="model-idea.png"><br><br>
+</div>
