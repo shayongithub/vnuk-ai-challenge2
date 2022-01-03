@@ -135,6 +135,7 @@ Open Jupyter Notebook in Google Collab and follow step-by-step to produce and te
 ## References 
 
 [1] Nguyễn Thanh Tuấn. [Deep Learning cơ bản](https://drive.google.com/file/d/1lNjzISABdoc7SRq8tg-xkCRRZRABPCKi/view)
+
 [2] Christopher Olah. [Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
 
 ----------------------------------
