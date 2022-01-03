@@ -29,6 +29,7 @@ These requirements can be easily installed by: `pip install -r requirements.txt`
 ## Model
 <div align="center">
   <img src="model.png"><br><br>
+  <figcaption>Image from Deep Learning cơ bản website - Image Captioning</figcaption>
 </div>
 
 ## Performance
