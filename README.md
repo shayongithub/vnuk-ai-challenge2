@@ -107,5 +107,31 @@
 
   Look from the left, the first step in LSTM model is deciding which information will get throw away. The mentioned forget gate with sigmoid function will make the decision in which information will be removed. It looks at ![formula](https://render.githubusercontent.com/render/math?math=h_{t-1}) and ![formula](https://render.githubusercontent.com/render/math?math=x_t) and outputs a number between 0 and 1 for each number in the previous cell state ![formula](https://render.githubusercontent.com/render/math?math=C_{t-1})
   
-  The next step is to decide what new information we’re going to store in the cell state. This has two parts. First, a sigmoid layer called the *input gate layer* decides which values we’ll update. Next, a *tanh layer* creates a vector of new candidate values, ![formula](https://render.githubusercontent.com/render/math?math=h_{t-1}) and ![formula](https://render.githubusercontent.com/render/math?math=\tilde{C_t}), that could be added to the state. In the next step, we’ll combine these two to create an update to the state.
+  The next step is to decide what new information we’re going to store in the cell state. This has two parts. First, a sigmoid layer called the *input gate layer* decides which values we’ll update. Next, a *tanh layer* creates a vector of new candidate values, ![formula](https://render.githubusercontent.com/render/math?math=\tilde{C_t}), that could be added to the state. In the next step, we’ll combine these two to create an update to the state.
 
+ <div align="center">
+    <img src="LSTM-explain/LSTM3-focus-i.png"><br><br>
+</div>
+
+We are now going to update the old cell state ![formula](https://render.githubusercontent.com/render/math?math=C_{t-1}), into the new cell state ![formula](https://render.githubusercontent.com/render/math?math=C_{t}). After forgetting the things we decided to forget earlier by multiply ![formula](https://render.githubusercontent.com/render/math?math=C_{t-1} \times f_t), we then add ![formula](https://render.githubusercontent.com/render/math?math=i_t * \tilde{C_t}) as new candidate values, scaled by how much we decided to update each state value.
+
+ <div align="center">
+    <img src="LSTM-explain/LSTM3-focus-C.png"><br><br>
+</div>
+
+Finally, we need to decide what we’re going to output. This output will be based on our cell state, but will be a filtered version. First, we run a sigmoid layer which decides what parts of the cell state we’re going to output. Then, we put the cell state through *tanh* (to push the values to be between −1 and 1) and multiply it by the output of the sigmoid gate, so that we only output the parts we decided to.
+
+ <div align="center">
+    <img src="LSTM-explain/LSTM3-focus-o.png"><br><br>
+</div>
+
+## Usage
+
+Open Jupyter Notebook in Google Collab and follow step-by-step to produce and test the model. You can also jump to the testing part with pre-trained model save in folder `saved_model` which contains 2 files: 1 with vocabulary for words appear more than 10, and once fore appear more than 7.
+
+## References 
+
+[1] Nguyễn Thanh Tuấn. [Deep Learning cơ bản](https://drive.google.com/file/d/1lNjzISABdoc7SRq8tg-xkCRRZRABPCKi/view)
+[2] Christopher Olah. [Understanding LSTM Networks](https://colah.github.io/posts/2015-08-Understanding-LSTMs/)
+
+----------------------------------
